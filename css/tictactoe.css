@@ -1,0 +1,42 @@
+/* CSS file for Tic Tac Toe */
+
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+.cell_container {
+  width: 30%;
+  height: 100px;
+}
+
+.cell_content {
+  position: relative;
+  top: 20%;
+  left: 50%;
+}
+
+.centre {
+  border-left: black solid 1px;
+  border-right: black solid 1px;
+}
+
+.game_layer {
+    margin: auto 25%;
+}
+
+.hidden {
+  display: none;
+}
+
+.middle {
+  border-top: black solid 1px;
+  border-bottom: black solid 1px;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+}
