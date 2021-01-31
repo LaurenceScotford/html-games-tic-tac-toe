@@ -22,22 +22,53 @@
       </div>
 
       <!-- game status -->
-      <div id="inPlayControls">
+      <div id="inPlayControls" class="hidden">
         <p>It's <span id="turn"></span>'s turn to play.</p>
 
         <!-- user input -->
         <input id="selectedCell" type="number">
-        <button id="play">Play</button>
+        <button id="play" disabled>Play</button>
         <button id="quit">Resign</button>
         <p id="valWarning" class="warning hidden">Please enter a cell number between 1 and 9!</p>
         <p id="posWarning" class="warning hidden">Please enter a number for a cell that is empty!</p>
       </div>
 
       <!-- end of game info and controls -->
-      <div id="outOfPlayControls" class="hidden">
+      <div id="resultMsg" class="hidden">
         <p id="winMsg"><span id="winner"></span> wins!</p>
         <p id="drawMsg">The game is drawn!</p>
-        <button id="new">New Game</button>
+      </div>
+      <div id="newGameControls">
+        <h1>New Game</h1>
+        <div id="playerSetup">
+          <div>
+            <p>Player O (goes first)</p>
+            <label for="playerOHuman">Human</label><input type="radio" name="playerO" id="playerOHuman" checked>
+            <label for="playerOComputer">Computer</label><input type="radio" name="playerO" id="playerOComputer">
+            <label for="compStrengthO">Computer strength</label>
+            <select id="compStrengthO">
+              <option value="0">Very weak</option>
+              <option value="1">Weak</option>
+              <option value="2">Average</option>
+              <option value="3">Strong</option>
+              <option value="4">Very strong</option>
+            </select>
+          </div>
+          <div>
+            <p>Player X</p>
+            <label for="playerXHuman">Human</label><input type="radio" name="playerX" id="playerXHuman" checked>
+            <label for="playerXComputer">Computer</label><input type="radio" name="playerX" id="playerXComputer">
+            <label for="compStrengthX">Computer strength</label>
+            <select id="compStrengthX">
+              <option value="0">Very weak</option>
+              <option value="1">Weak</option>
+              <option value="2">Average</option>
+              <option value="3">Strong</option>
+              <option value="4">Very strong</option>
+            </select>
+          </div>
+          <button id="new">Start New Game</button>
+        </div>
       </div>
     </div>
     <!-- script to boot game once DOM loaded -->
