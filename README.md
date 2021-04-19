@@ -9,5 +9,4 @@ The game will end when a win or draw condition is detected. At that point a new 
 
 TO DO:
 
-- Create a stronger AI player (add look ahead functionality)
 - Pretty up the user interface and enable moves to be entered by clicking a cell
