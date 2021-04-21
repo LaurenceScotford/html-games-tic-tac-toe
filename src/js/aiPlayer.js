@@ -142,8 +142,13 @@ class AiPlayer extends Player {
           score += threshold <= 3 ? (isMax ? 3 : -3) : 0;
           break;
         case 20:
-          // Two marks for player, 0 for opponent
-          score += threshold <= 6 ? (isMax ? 6 : -6) : 0;
+            // Two marks for player, 0 for opponent
+            score += threshold <= 6 ? (isMax ? 6 : -6) : 0;
+            break;
+        case 11:
+        case 12:
+        case 21:
+          score += threshold <= 1 ? -1 : 0;
           break;
       }
     }

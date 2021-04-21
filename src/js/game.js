@@ -3,7 +3,7 @@
 
 import { Ui } from './ui.js';
 import { Board } from './board.js';
-import { HumanPlayer } from './humanPlayer.js';
+import { Player } from './player.js';
 import { AiPlayer } from './aiPlayer.js';
 
 class Game {
@@ -11,15 +11,15 @@ class Game {
   #players = [];  // Holds the player objects for O and X respectively
   #turn = 0;      // The index number for the current player
 
-  // Constuctor expects a player type for each player - 'A' for AI or 'H' for
+  // Constructor expects a player type for each player - 'A' for AI or 'H' for
   // human and a playing strength from 0 to 4 (this will be ignored for human)
   // players
   constructor(type1, strength1, type2, strength2) {
     this.#board = new Board();
 
     // Set up players
-    this.#players[0] = type1 == 'A' ? new AiPlayer('O', strength1) : new HumanPlayer('O');
-    this.#players[1] = type2 == 'A' ? new AiPlayer('X', strength2) : new HumanPlayer('X');
+    this.#players[0] = type1 == 'A' ? new AiPlayer('O', strength1) : new Player('O');
+    this.#players[1] = type2 == 'A' ? new AiPlayer('X', strength2) : new Player('X');
   }
 
   // Returns the mark at index
