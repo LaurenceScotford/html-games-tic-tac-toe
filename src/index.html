@@ -1,82 +1,106 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Tic Tac Toe</title>
-    <link href="css/tictactoe.css" rel="stylesheet">
-<!--    <script type="module" src="js/tictactoe.js"></script> -->
-  </head>
-  <body>
-    <div class="game_layer">
-      <!-- board -->
-      <div class="board">
-        <div class="cell_container"><div class="cell_id">1</div><div class="cell_content" id="cell0"></div></div>
-        <div class="cell_container centre"><div class="cell_id">2</div><div class="cell_content" id="cell1"></div></div>
-        <div class="cell_container"><div class="cell_id">3</div><div class="cell_content" id="cell2"></div></div>
-        <div class="cell_container middle"><div class="cell_id">4</div><div class="cell_content" id="cell3"></div></div>
-        <div class="cell_container middle centre"><div class="cell_id">5</div><div class="cell_content" id="cell4"></div></div>
-        <div class="cell_container middle"><div class="cell_id">6</div><div class="cell_content" id="cell5"></div></div>
-        <div class="cell_container"><div class="cell_id">7</div><div class="cell_content" id="cell6"></div></div>
-        <div class="cell_container centre"><div class="cell_id">8</div><div class="cell_content" id="cell7"></div></div>
-        <div class="cell_container"><div class="cell_id">9</div><div class="cell_content" id="cell8"></div></div>
-      </div>
 
-      <!-- game status -->
-      <div id="inPlayControls" class="hidden">
-        <p>It's <span id="turn"></span>'s turn to play.</p>
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <!-- <link href="css/tictactoe.css" rel="stylesheet"> -->
+</head>
 
-        <!-- user input -->
-        <input id="selectedCell" type="number">
-        <button id="play" disabled>Play</button>
-        <button id="quit">Resign</button>
-        <p id="valWarning" class="warning hidden">Please enter a cell number between 1 and 9!</p>
-        <p id="posWarning" class="warning hidden">Please enter a number for a cell that is empty!</p>
+<body>
+  <div class="game_layer">
+    <!-- board -->
+    <div class="board">
+      <div class="cell_container">
+        <div class="cell_id">1</div>
+        <div class="cell_content" id="cell0"></div>
       </div>
-
-      <!-- end of game info and controls -->
-      <div id="resultMsg" class="hidden">
-        <p id="winMsg"><span id="winner"></span> wins!</p>
-        <p id="drawMsg">The game is drawn!</p>
+      <div class="cell_container centre">
+        <div class="cell_id">2</div>
+        <div class="cell_content" id="cell1"></div>
       </div>
-      <div id="newGameControls">
-        <h1>New Game</h1>
-        <div id="playerSetup">
-          <div>
-            <p>Player O (goes first)</p>
-            <label for="playerOHuman">Human</label><input type="radio" name="playerO" id="playerOHuman" checked>
-            <label for="playerOComputer">Computer</label><input type="radio" name="playerO" id="playerOComputer">
-            <label for="compStrengthO">Computer strength</label>
-            <select id="compStrengthO">
-              <option value="0">Very weak</option>
-              <option value="1">Weak</option>
-              <option value="2">Average</option>
-              <option value="3">Strong</option>
-              <option value="4">Very strong</option>
-            </select>
-          </div>
-          <div>
-            <p>Player X</p>
-            <label for="playerXHuman">Human</label><input type="radio" name="playerX" id="playerXHuman" checked>
-            <label for="playerXComputer">Computer</label><input type="radio" name="playerX" id="playerXComputer">
-            <label for="compStrengthX">Computer strength</label>
-            <select id="compStrengthX">
-              <option value="0">Very weak</option>
-              <option value="1">Weak</option>
-              <option value="2">Average</option>
-              <option value="3">Strong</option>
-              <option value="4">Very strong</option>
-            </select>
-          </div>
-          <button id="new">Start New Game</button>
-        </div>
+      <div class="cell_container">
+        <div class="cell_id">3</div>
+        <div class="cell_content" id="cell2"></div>
+      </div>
+      <div class="cell_container middle">
+        <div class="cell_id">4</div>
+        <div class="cell_content" id="cell3"></div>
+      </div>
+      <div class="cell_container middle centre">
+        <div class="cell_id">5</div>
+        <div class="cell_content" id="cell4"></div>
+      </div>
+      <div class="cell_container middle">
+        <div class="cell_id">6</div>
+        <div class="cell_content" id="cell5"></div>
+      </div>
+      <div class="cell_container">
+        <div class="cell_id">7</div>
+        <div class="cell_content" id="cell6"></div>
+      </div>
+      <div class="cell_container centre">
+        <div class="cell_id">8</div>
+        <div class="cell_content" id="cell7"></div>
+      </div>
+      <div class="cell_container">
+        <div class="cell_id">9</div>
+        <div class="cell_content" id="cell8"></div>
       </div>
     </div>
-    <!-- script to boot game once DOM loaded -->
-    <script type="module">
-      import { initialiseGame } from './js/tictactoe.js';
-      document.addEventListener('DOMContentLoaded', function() {
-        initialiseGame();
-      });
-    </script>
-  </body>
+
+    <!-- game status -->
+    <div id="inPlayControls" class="hidden">
+      <p>It's <span id="turn"></span>'s turn to play.</p>
+
+      <!-- user input -->
+      <input id="selectedCell" type="number">
+      <button id="play" disabled>Play</button>
+      <button id="quit">Resign</button>
+      <p id="valWarning" class="warning hidden">Please enter a cell number between 1 and 9!</p>
+      <p id="posWarning" class="warning hidden">Please enter a number for a cell that is empty!</p>
+    </div>
+
+    <!-- end of game info and controls -->
+    <div id="resultMsg" class="hidden">
+      <p id="winMsg"><span id="winner"></span> wins!</p>
+      <p id="drawMsg">The game is drawn!</p>
+    </div>
+    <div id="newGameControls">
+      <h1>New Game</h1>
+      <div id="playerSetup">
+        <div>
+          <p>Player O (goes first)</p>
+          <label for="playerOHuman">Human</label><input type="radio" name="playerO" id="playerOHuman" checked>
+          <label for="playerOComputer">Computer</label><input type="radio" name="playerO" id="playerOComputer">
+          <label for="compStrengthO">Computer strength</label>
+          <select id="compStrengthO">
+            <option value="0">Very weak</option>
+            <option value="1">Weak</option>
+            <option value="2">Average</option>
+            <option value="3">Strong</option>
+            <option value="4">Very strong</option>
+          </select>
+        </div>
+        <div>
+          <p>Player X</p>
+          <label for="playerXHuman">Human</label><input type="radio" name="playerX" id="playerXHuman" checked>
+          <label for="playerXComputer">Computer</label><input type="radio" name="playerX" id="playerXComputer">
+          <label for="compStrengthX">Computer strength</label>
+          <select id="compStrengthX">
+            <option value="0">Very weak</option>
+            <option value="1">Weak</option>
+            <option value="2">Average</option>
+            <option value="3">Strong</option>
+            <option value="4">Very strong</option>
+          </select>
+        </div>
+        <button id="new">Start New Game</button>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

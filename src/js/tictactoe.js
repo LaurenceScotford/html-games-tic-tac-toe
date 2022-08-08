@@ -1,5 +1,5 @@
 // Javascript file for Tic Tac Toe
-
+import css from '../css/tictactoe.css';
 import { Ui } from './ui.js';
 import { Game } from './game.js';
 
@@ -104,4 +104,6 @@ function initialiseGame() {
     getMove();
   }
 
-export { initialiseGame };
+(() => {document.addEventListener('DOMContentLoaded', function () {
+  initialiseGame();
+})})();
